@@ -1,5 +1,6 @@
 
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { User, Book, Search } from 'lucide-react';
@@ -12,14 +13,14 @@ const Header = () => {
       <div className="container mx-auto px-4 py-4">
         <nav className="flex items-center justify-between">
           {/* Logo */}
-          <div className="flex items-center space-x-2">
+          <Link to="/" className="flex items-center space-x-2">
             <div className="w-10 h-10 gradient-primary rounded-xl flex items-center justify-center">
               <Book className="w-6 h-6 text-white" />
             </div>
             <span className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-green-600 bg-clip-text text-transparent">
               EduPlateforme
             </span>
-          </div>
+          </Link>
 
           {/* Navigation Desktop */}
           <div className="hidden md:flex items-center space-x-8">
@@ -43,12 +44,14 @@ const Header = () => {
               <Search className="w-4 h-4 mr-2" />
               Rechercher
             </Button>
-            <Button variant="outline" size="sm">
-              Connexion
+            <Button variant="outline" size="sm" asChild>
+              <Link to="/login">Connexion</Link>
             </Button>
-            <Button className="gradient-primary text-white border-0" size="sm">
-              <User className="w-4 h-4 mr-2" />
-              S'inscrire
+            <Button className="gradient-primary text-white border-0" size="sm" asChild>
+              <Link to="/login">
+                <User className="w-4 h-4 mr-2" />
+                S'inscrire
+              </Link>
             </Button>
           </div>
 
@@ -82,12 +85,14 @@ const Header = () => {
                 Communauté
               </a>
               <div className="pt-4 border-t flex flex-col space-y-2">
-                <Button variant="outline" size="sm">
-                  Connexion
+                <Button variant="outline" size="sm" asChild>
+                  <Link to="/login">Connexion</Link>
                 </Button>
-                <Button className="gradient-primary text-white border-0" size="sm">
-                  <User className="w-4 h-4 mr-2" />
-                  S'inscrire
+                <Button className="gradient-primary text-white border-0" size="sm" asChild>
+                  <Link to="/login">
+                    <User className="w-4 h-4 mr-2" />
+                    S'inscrire
+                  </Link>
                 </Button>
               </div>
             </div>
